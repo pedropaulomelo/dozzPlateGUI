@@ -1,0 +1,599 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  /* Sidebar Styles */
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(180.21deg, #FFF9F9 -64.58%, rgba(255, 255, 255, 0.45) 115.31%), linear-gradient(80deg, #FFC368 0%, #D569E1 30%, #4164E1 100%);
+    color: black;
+    transition: all 0.3s;
+    overflow-y: auto;
+    cursor: pointer;
+  }
+  
+  #sidebar.active {
+    left: 0;
+  }
+  
+  #sidebar .sidebar-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 58px;
+    background: linear-gradient(180.21deg, #FFF9F9 -64.58%, rgba(255, 255, 255, 0.45) 115.31%), linear-gradient(80deg, #FFC368 0%, #D569E1 30%, #4164E1 100%);
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  #sidebar ul.components {
+    padding: 20px 0;
+  }
+  
+  #sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: black;
+  }
+  
+  #sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.45);
+    color: rgba(0, 0, 0, 0.7);
+  }
+  
+  #sidebar ul li.active > a, a[aria-expanded="true"] {
+    background: #495057;
+    color: rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Content Styles */
+  #content {
+    width: 100%;
+    padding-left: 0;
+    min-height: 100vh;
+    transition: all 0.3s;
+  }
+  
+  #content.active {
+    padding-left: 250px;
+  }
+  
+  .navbar {
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  .navbar .container-fluid {
+    display: flex;
+    align-items: center;
+  }
+  
+  #sidebarCollapse {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  #sidebarCollapse:hover {
+    color: rgba(0,0,0,0.55);
+  }
+
+  #sidebarCollapse:active {
+    color: rgba(0,0,0,0.25);
+  }
+
+  #page-title {
+    margin-left: 20px;
+    height: 28px;
+  }
+  
+  #main-content {
+    padding: 20px;
+  }
+  
+  /* Table Styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  table thead tr {
+    background: #343a40;
+    color: #fff;
+  }
+  
+  table th, table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  table tbody tr:nth-child(even) {
+    background: #f2f2f2;
+  }
+  
+  table tbody tr:hover {
+    background: #ddd;
+  }
+  
+  th {
+    background: #b4bbeb;
+    color: black
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    #sidebar {
+      left: -250px;
+    }
+    #sidebar.active {
+      left: 0;
+    }
+    #content {
+      padding-left: 0;
+    }
+    #content.active {
+      padding-left: 0;
+    }
+  }
+
+  /* Filter Container */
+  .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .filter-container input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .filter-container input::placeholder {
+    color: #888;
+  }
+
+  .btn-clear {
+    padding: 10px 15px;
+    font-size: 1em;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-clear:hover {
+    background-color: #c82333;
+  }
+
+  /* Existing styles remain unchanged */
+
+/* Hide the expand button by default */
+.expand-button-cell {
+  width: 50px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Show the expand button on row hover */
+tr:hover .expand-button-cell {
+  opacity: 1;
+}
+
+/* Style for the expand button */
+.expand-button {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.expand-button:hover {
+  color: #0056b3;
+}
+
+/* Style for expanded rows */
+.expanded-row {
+  background-color: #f9f9f9;
+}
+
+.expanded-row td {
+  padding: 10px 20px;
+}
+
+.vehicle-details {
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+/* Indent the vehicle details */
+.vehicle-details {
+  margin-left: 20px;
+}
+
+/* Adjust table layout to accommodate the expand button */
+table th, table td {
+  padding: 12px;
+  text-align: left;
+}
+
+table th:last-child, table td:last-child {
+  width: 50px;
+  text-align: center;
+}
+
+/* Styles for filter select inputs */
+.filter-container select {
+  flex: 1;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter-container select:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.play-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.play-button i {
+  width: 24px;
+  height: 24px;
+}
+
+.play-button:hover {
+  opacity: 0.7;
+}
+
+/* Snack message styles */
+.snack-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 4px;
+  z-index: 1000;
+  opacity: 0.9;
+  font-size: 14px;
+  animation: slide-in 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
+}
+
+.snack-message.info {
+  background-color: #007bff;
+}
+
+.snack-message.success {
+  background-color: #28a745;
+}
+
+.snack-message.error {
+  background-color: #dc3545;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* New fade-out class */
+.snack-message.fade-out {
+  opacity: 0;
+}
+
+/* CSS para os círculos de status */
+.status-circle {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-circle.green {
+  background-color: #28a745; /* Verde */
+}
+
+.status-circle.red {
+  background-color: #dc3545; /* Vermelho */
+}
+
+.status-circle.yellow {
+  background-color: #ffc107; /* Amarelo */
+}
+
+/* Container for Configurações page */
+.configuracoes-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px); /* Ajuste este valor conforme a altura do seu header/navbar */
+}
+
+.configuracoes-top {
+  flex: 1.5; /* Ocupa dois terços da tela */
+  overflow-y: auto;
+}
+
+.configuracoes-bottom {
+  flex: 1.5; /* Ocupa um terço da tela */
+  overflow-y: auto;
+  margin-top: 50px;
+}
+
+.table-container {
+  padding: 10px;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container table thead tr {
+  background: #343a40;
+  color: #fff;
+}
+
+.table-container table th, .table-container table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.table-container table tbody tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.table-container table tbody tr:hover {
+  background: #ddd;
+}
+
+/* Style for form actions */
+.form-actions {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.btn-save {
+  padding: 10px 20px;
+  background-color: #28a745; /* Verde */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  .configuracoes-container {
+    height: auto;
+  }
+
+  .configuracoes-top, .configuracoes-bottom {
+    flex: none;
+    height: auto;
+  }
+}
+
+/* Estilos para a página Controle */
+.status-marquee {
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2em;
+  background-color: green; /* Começa com verde */
+  margin-bottom: 10px;
+}
+
+.tables-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.table-wrapper {
+  flex: 1;
+  min-width: 300px;
+  margin: 10px;
+}
+
+/* Estilos para a tabela na página Controle */
+.controle-table {
+  width: 100%;
+  border-collapse: collapse;
+  /* font-size: 14px;  */
+}
+
+.controle-table th,
+.controle-table td {
+  border: 1px solid #ddd;
+  padding: 4px 8px; 
+}
+
+.controle-table th {
+  background-color: #f2f2f2;
+}
+
+.controle-table tr {
+  height: 24px; 
+}
+
+/* Estilos para o contêiner da placa SVG */
+.plate-svg-container {
+  width: 100%;
+  height: auto;
+}
+
+.plate-svg-container svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Estilos para a página de Eventos */
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaço entre as linhas de filtros */
+  margin-bottom: 20px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-row input[type="text"],
+.filter-row select,
+.filter-row input[type="datetime-local"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1; /* Permite que os campos cresçam proporcionalmente */
+  min-width: 150px;
+}
+
+
+.filter-row button {
+  padding: 8px 16px;
+  background-color: #f44336; /* Cor vermelha para o botão de limpar */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 100px;
+  align-self: center;
+}
+
+.filter-row button:hover {
+  background-color: #d32f2f;
+}
+
+/* Ajustes para a tabela de eventos */
+#eventos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#eventos-table th,
+#eventos-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#eventos-table th {
+  background-color: #f2f2f2;
+}
+
+/* Responsividade para filtros */
+@media (max-width: 768px) {
+  .filter-row {
+    flex-direction: column;
+  }
+
+  .filter-row input[type="text"],
+  .filter-row select,
+  .filter-row input[type="datetime-local"],
+  .filter-row button {
+    flex: 1 1 auto;
+    min-width: 100%;
+  }
+}
+
+/* Indicadores de Status */
+.status-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.status-indicator.green {
+  background-color: green;
+}
+.status-indicator.orange {
+  background-color: orange;
+}
+.status-indicator.red {
+  background-color: red;
+}
+
+/* Estilo para a tabela expandida */
+.inner-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.inner-table th, .inner-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.expanded-row {
+  background-color: #f9f9f9;
+}
+
+/* Estilo para os botões de expansão */
+.expand-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Opcional: Ajustar o tamanho dos ícones */
+.expand-button i {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,50 @@
+{
+  "name": "dozzplate",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "electron": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.1",
+    "nedb": "^1.8.0",
+    "node-nvidia-smi": "^1.0.0",
+    "pkg": "^5.8.1",
+    "socket.io": "^4.8.0"
+  },
+  "build": {
+    "appId": "com.dozzplate.plate",
+    "productName": "dozzplate",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "server.js",
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      "plates.db",
+      "settings.db",
+      "mg3000.db",
+      "events.db",
+      "stream.py"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/dozzIcon.ico"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.2.0"
+  }
+}

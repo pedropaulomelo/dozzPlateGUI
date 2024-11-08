@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dozz Plate</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.socket.io/4.8.0/socket.io.min.js"></script>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico">
+  <!-- Icons from Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Sidebar Menu -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Dozz Plate</h3>
+    </div>
+    <ul class="list-unstyled components">
+      <li>
+        <a href="#" id="cadastros-link">
+          <i data-feather="users"></i>
+          Cadastros
+        </a>
+      </li>
+      <li>
+        <a href="#" id="configuracoes-link">
+          <i data-feather="settings"></i>
+          Configurações
+        </a>
+      </li>
+      <li>
+        <a href="#" id="controle-link">
+          <i data-feather="monitor"></i>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#" id="eventos-link">
+          <i data-feather="calendar"></i>
+          Eventos
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <div id="content">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <i class="fas fa-bars"></i>
+        </button>
+        <h2 id="page-title">Bem-vindo</h2>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="main-content">
+      <!-- Content will be injected here by JavaScript -->
+    </div>
+  </div>
+</body>
+</html>
